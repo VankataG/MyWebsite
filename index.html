@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ivan Ganchev — Personal Site</title>
+  <meta name="description" content="{{SHORT_DESCRIPTION}}" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="dot"></div>
+        
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="card">
+        <h1>Ivan Ganchev</h1>
+        <p class="sub">{{TAGLINE}}</p>
+        <div class="chips">
+          <span class="chip">{{HIGHLIGHT_1}}</span>
+          <span class="chip">{{HIGHLIGHT_2}}</span>
+          <span class="chip">{{HIGHLIGHT_3}}</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Contact me</a>
+          <a class="btn" href="#projects">See projects</a>
+          <a class="btn" href="cv.pdf" download>Download CV</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="avatar">Drop a photo here later</div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="panel">
+        <p>Starting Software Developer | C# & ASP.NET Core | Focused on building clean, functional web apps and learning every day. Interested in DevOps too.</p>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid cols-3">
+        <div class="panel">
+          <h3>Core</h3>
+          <div class="tags">
+            <span class="tag">C#</span>
+            <span class="tag">.NET</span>
+            <span class="tag">ASP.NET Core</span>
+            <span class="tag">MS SQL</span>
+            <span class="tag">EF Core</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Currently learning</h3>
+          <div class="tags">
+            <span class="tag">Azure Fundamentals</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Soft skills</h3>
+          <div class="tags">
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Self-Motivation</span>
+            <span class="tag">Critical Thinking</span>
+            <span class="tag">Teamwork</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid cols-3">
+        <article class="panel">
+          <h3>ActionFit</h3>
+          <p class="muted">{{PROJECT_SHORT_DESC}}</p>
+          <div class="chips">
+            <span class="chip">.NET</span>
+            <span class="chip">MS SQL</span>
+            <span class="chip">EF Core</span>
+          </div>
+          <p><a href="https://calisthenicsstore.onrender.com/">Live</a> · <a href="https://github.com/VankataG/CalisthenicsStore">Code</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="panel">
+        <ul>
+          <li><strong>{{ROLE_OR_EVENT}}</strong> — {{PLACE_OR_COMPANY}} <span class="muted">({{DATE_RANGE}})</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="grid cols-2">
+        <div class="panel">
+          <p>Email: <a href="mailto:{{EMAIL}}">ivg.ganchev@gmail.com</a></p>
+          <p>Links: <a href="https://github.com/VankataG">GitHub</a> · <a href="https://www.linkedin.com/in/vankatag/">LinkedIn</a></p>
+        </div>
+        <div class="panel">
+          <form>
+            <input placeholder="Your email" style="width:100%; padding:10px; margin-bottom:10px;" />
+            <textarea placeholder="Message" rows="4" style="width:100%; padding:10px;"></textarea>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="y"></span> Ivan Ganchev — All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
