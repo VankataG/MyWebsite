@@ -139,6 +139,76 @@
       </div>
     </section>
 
+    <section id="hobbies" aria-labelledby="hobbies-heading">
+      <h2 id="hobbies-heading">Hobbies</h2>
+
+      <div class="panel">
+        <article class="intro">
+          <h3>Turbo Night Lamps</h3>
+          <p>
+            I upcycle real car turbochargers into unique night lamps. Each lamp is cleaned,
+            painted and fitted with a safe low-voltage setup. The goal is to keep the
+            industrial character of the turbo while turning it into a functional art piece.
+          </p>
+          <ul class="features">
+            <li>Real turbo housings (steel/aluminium), degreased & sealed</li>
+            <li>Soft, warm lighting</li>
+            <li>Hidden wiring</li>
+            <li>Hand-finished for a unique look</li>
+          </ul>
+        </article>
+
+        <!-- Media Grid -->
+        <div class="media-grid" role="list">
+          <!-- Example image card -->
+          <figure class="media-card" role="listitem">
+            <button class="lightbox-trigger" data-type="image" data-src="/media/image2.jpg" aria-label="Open full-size image: Turbo Lamp 01">
+              <img src="/media/image2.jpg" alt="Turbo lamp with warm LED glow on a workbench">
+            </button>
+              
+          </figure>
+
+            <!-- Example image card -->
+          <figure class="media-card" role="listitem">
+            <button class="lightbox-trigger" data-type="image" data-src="/media/image3.jpg" aria-label="Open full-size image: Turbo Lamp 02">
+              <img src="/media/image3.jpg" alt="Polished turbo housing converted to a desk lamp">
+            </button>
+              
+            </figure>
+
+            <!-- Example image card -->
+          <figure class="media-card" role="listitem">
+            <button class="lightbox-trigger" data-type="image" data-src="/media/image4.jpg" aria-label="Open full-size image: Turbo Lamp 03">
+              <img src="/media/image4.jpg" alt="Matte black turbo lamp with dimmer knob">
+            </button>
+              
+          </figure>
+
+            <!-- Example video card -->
+          <figure class="media-card" role="listitem">
+            <button class="lightbox-trigger" data-type="video" data-src="/media/making_process.mp4" aria-label="Play build video">
+              <div class="video-thumb">
+                <img src="/media/image5.jpeg" alt="Video cover: build process">
+                <span class="play-badge" aria-hidden="true">▶</span>
+              </div>
+            </button>
+            <figcaption>Build process (short)</figcaption>
+          </figure>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Media viewer">
+          <button class="lightbox-close" aria-label="Close viewer">×</button>
+          <div class="lightbox-content" tabindex="0"></div>
+          <nav class="lightbox-nav">
+            <button class="prev" aria-label="Previous">‹</button>
+            <button class="next" aria-label="Next">›</button>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ===== CONTACT ===== -->
     <section id="contact">
       <h2>Contact</h2>
@@ -174,5 +244,74 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+  <script>
+    (() => {
+      const cards = [...document.querySelectorAll('#hobbies .lightbox-trigger')];
+      const lb = document.querySelector('#hobbies .lightbox');
+      const lbContent = lb.querySelector('.lightbox-content');
+      const closeBtn = lb.querySelector('.lightbox-close');
+      const prevBtn = lb.querySelector('.prev');
+      const nextBtn = lb.querySelector('.next');
+      let idx = -1;
+      let lastFocus = null;
+    
+      function openAt(i) {
+        idx = i;
+        const btn = cards[idx];
+        const type = btn.dataset.type;
+        const src = btn.dataset.src;
+      
+        lbContent.innerHTML = '';
+        if (type === 'image') {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = btn.querySelector('img')?.alt || 'Full-size image';
+          lbContent.appendChild(img);
+        } else if (type === 'video') {
+          const vid = document.createElement('video');
+          vid.src = src;
+          vid.controls = true;
+          vid.autoplay = true;
+          lbContent.appendChild(vid);
+        }
+      
+        lb.setAttribute('aria-hidden', 'false');
+        lastFocus = document.activeElement;
+        lbContent.focus();
+        updateNav();
+      }
+    
+      function close() {
+        lb.setAttribute('aria-hidden', 'true');
+        lbContent.innerHTML = '';
+        if (lastFocus) lastFocus.focus();
+      }
+    
+      function updateNav() {
+        prevBtn.disabled = (idx <= 0);
+        nextBtn.disabled = (idx >= cards.length - 1);
+      }
+    
+      function next() { if (idx < cards.length - 1) openAt(idx + 1); }
+      function prev() { if (idx > 0) openAt(idx - 1); }
+    
+      cards.forEach((b, i) => b.addEventListener('click', () => openAt(i)));
+      closeBtn.addEventListener('click', close);
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+    
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) close(); // click backdrop to close
+      });
+    
+      document.addEventListener('keydown', (e) => {
+        if (lb.getAttribute('aria-hidden') === 'true') return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+    })();
+  </script>
+
 </body>
 </html>
