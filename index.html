@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
   <header>
     <div class="wrap nav">
       <div class="brand">
@@ -28,7 +27,6 @@
   </header>
 
   <main class="wrap">
-    <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="card">
         <h1>Ivan Ganchev</h1>
@@ -48,7 +46,6 @@
       </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
     <section id="about">
       <h2>About</h2>
       <div class="panel">
@@ -56,7 +53,6 @@
       </div>
     </section>
 
-    <!-- ===== SKILLS ===== -->
     <section id="skills">
       <h2>Skills</h2>
       <div class="grid cols-3">
@@ -97,7 +93,6 @@
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
     <section id="projects">
       <h2>Projects</h2>
       <div class="grid cols-3">
@@ -114,7 +109,6 @@
       </div>
     </section>
 
-    <!-- ===== EXPERIENCE ===== -->
     <section id="experience">
       <h2>Experience</h2>
       <div class="panel">
@@ -160,33 +154,25 @@
           </ul>
         </article>
 
-        <!-- Media Grid -->
         <div class="media-grid" role="list">
-          <!-- Example image card -->
           <figure class="media-card" role="listitem">
             <button class="lightbox-trigger" data-type="image" data-src="/media/image2.jpg" aria-label="Open full-size image: Turbo Lamp 01">
               <img src="/media/image2.jpg" alt="Turbo lamp with warm LED glow on a workbench">
             </button>
-              
           </figure>
 
-            <!-- Example image card -->
           <figure class="media-card" role="listitem">
             <button class="lightbox-trigger" data-type="image" data-src="/media/image3.jpg" aria-label="Open full-size image: Turbo Lamp 02">
               <img src="/media/image3.jpg" alt="Polished turbo housing converted to a desk lamp">
             </button>
-              
             </figure>
 
-            <!-- Example image card -->
           <figure class="media-card" role="listitem">
             <button class="lightbox-trigger" data-type="image" data-src="/media/image4.jpg" aria-label="Open full-size image: Turbo Lamp 03">
               <img src="/media/image4.jpg" alt="Matte black turbo lamp with dimmer knob">
             </button>
-              
           </figure>
 
-            <!-- Example video card -->
           <figure class="media-card" role="listitem">
             <button class="lightbox-trigger" data-type="video" data-src="/media/making_process.mp4" aria-label="Play build video">
               <div class="video-thumb">
@@ -198,7 +184,6 @@
           </figure>
         </div>
 
-        <!-- Lightbox Modal -->
         <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Media viewer">
           <button class="lightbox-close" aria-label="Close viewer">×</button>
           <div class="lightbox-content" tabindex="0"></div>
@@ -210,8 +195,6 @@
       </div>
     </section>
 
-
-    <!-- ===== CONTACT ===== -->
     <section id="contact">
       <h2>Contact</h2>
       <div class="grid cols-2">
@@ -303,7 +286,7 @@
       nextBtn.addEventListener('click', next);
     
       lb.addEventListener('click', (e) => {
-        if (e.target === lb) close(); // click backdrop to close
+        if (e.target === lb) close();
       });
     
       document.addEventListener('keydown', (e) => {
